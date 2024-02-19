@@ -1,7 +1,7 @@
 import { NewPlayer, Player } from '../models/types';
 import { MESSAGES } from '../constants';
 
-export class DbService {
+export class PlayerStorage {
   players: Player[] | [];
 
   constructor() {
@@ -18,30 +18,34 @@ export class DbService {
     return false;
   }
 
-  async signInPlayer(name: string, password: string): Promise<Player | null> {
+  getPlayersList() {
+    return this.players;
+  }
+
+  private signInPlayer(name: string, password: string): Player | null {
     if (this.isPlayerExist(name)) {
       console.log('From signIn: ', this.players);
-      const registeredPlayer = await this.loginPlayer(name, password);
+      const registeredPlayer = this.loginPlayer(name, password);
       return registeredPlayer;
     }
 
     const newPlayerId: number = this.players.length;
     const newPlayer: Player = { name, password, index: newPlayerId, wins: 0 };
-    // @ts-expect-error - ignore as this.players type is defined
-    this.players.push(newPlayer);
+
+    (this.players as Player[]).push(newPlayer);
     console.log('Players', this.players);
 
     return newPlayer;
   }
 
-  async loginPlayer(name: string, password: string): Promise<Player | null> {
+  loginPlayer(name: string, password: string): Player | null {
     const registeredPlayer: Player | undefined = this.players.find(
       (player) => player.name === name,
     );
     console.log('From logIn: ', this.players);
 
     if (!registeredPlayer) {
-      const newPlayer = await this.signInPlayer(name, password);
+      const newPlayer = this.signInPlayer(name, password);
       return newPlayer;
     }
 
@@ -54,4 +58,4 @@ export class DbService {
   }
 }
 
-export const db = new DbService();
+export const db = new PlayerStorage();

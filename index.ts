@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import { httpServer } from './src/http_server/index';
-import { connectionHandler } from './src/websocket';
+import { connectionHandler } from './src/websocket/server';
 
 dotenv.config();
 
