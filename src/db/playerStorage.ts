@@ -1,4 +1,4 @@
-import { NewPlayer, Player } from '../models/types';
+import { Player } from '../models/types';
 import { MESSAGES } from '../constants';
 
 export class PlayerStorage {

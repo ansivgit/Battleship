@@ -42,7 +42,8 @@
         "variables": true,
         "allowNamedExports": false
       }
-    ]
+    ],
+    "eslint consistent-return": "off"
   },
   "settings": {
     "import/resolver": {

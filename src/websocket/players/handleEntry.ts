@@ -21,7 +21,7 @@ export class HandleEntry {
         throw new Error();
       }
 
-      activeServers.set(ws, { playerIndex: player.index });
+      activeServers.set(ws, { index: player.index, name: player.name });
 
       const resData = {
         name,
