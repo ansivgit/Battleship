@@ -1,7 +1,7 @@
 import WebSocket, { WebSocketServer } from 'ws';
 import { db } from '../db/playerStorage';
 // import { activeServers } from './players/activeServers';
-import { HandleEntry, createRoom } from './index';
+import { HandleEntry, createRoom, addToRoom, createGame } from './index';
 import { WsRequest } from '../models/types';
 import { COMMAND_TYPES } from '../constants';
 
@@ -40,6 +40,9 @@ function handleRequest(ws: WebSocket, req: WsRequest) {
       break;
     case COMMAND_TYPES.createRoom:
       createRoom(ws);
+      break;
+    case COMMAND_TYPES.addToRoom:
+      addToRoom(ws, req);
       break;
     default:
       console.log('Bad request');

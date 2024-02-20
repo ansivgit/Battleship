@@ -1,10 +1,15 @@
 import { HandleEntry } from './players/handleEntry';
-import { createRoom } from './rooms/createRoom';
+import { createRoom, updateRoom, addToRoom } from './rooms';
+import { createGame } from './games';
 
 export {
   HandleEntry,
 };
 
 export {
-  createRoom,
+  createRoom, updateRoom, addToRoom,
+};
+
+export {
+  createGame,
 };
