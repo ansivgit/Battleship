@@ -1,6 +1,7 @@
 import { HandleEntry } from './players/handleEntry';
 import { createRoom, updateRoom, addToRoom } from './rooms';
-import { createGame } from './games';
+// import { createGame, addShips, startGame } from './games';
+import { createGame, addShips } from './games';
 
 export {
   HandleEntry,
@@ -11,5 +12,6 @@ export {
 };
 
 export {
-  createGame,
+  // createGame, addShips, startGame,
+  createGame, addShips,
 };

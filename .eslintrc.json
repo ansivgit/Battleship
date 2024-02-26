@@ -43,7 +43,8 @@
         "allowNamedExports": false
       }
     ],
-    "eslint consistent-return": "off"
+    "consistent-return": "off",
+    "lines-between-class-members": ["warn", "always", { "exceptAfterSingleLine": true }]
   },
   "settings": {
     "import/resolver": {

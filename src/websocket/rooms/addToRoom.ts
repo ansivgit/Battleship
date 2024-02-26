@@ -4,7 +4,9 @@ import { activeServers } from '../players/activeServers';
 import { updateRoom } from './updateRoom';
 import { createGame } from '../games';
 import { getResStringify } from '../../helpers';
-import { WsRequest, Room, AddToRoomData, UserIdentification, GameId, CreateGameData } from '../../models/types';
+import {
+  WsRequest, Room, AddToRoomData, UserIdentification, GameId, CreateGameData,
+} from '../../models/types';
 import { MESSAGES, COMMAND_TYPES } from '../../constants';
 
 export const addToRoom = (ws: WebSocket, req: WsRequest): void => {
@@ -33,7 +35,7 @@ export const addToRoom = (ws: WebSocket, req: WsRequest): void => {
     }
 
     room.roomUsers.forEach((player) => {
-      //? move to separate function?
+      // ? move to separate function?
       const resData: CreateGameData = { idGame: gameId, idPlayer: player.index };
       player.ws.send(getResStringify(COMMAND_TYPES.createGame, resData));
       console.log(333, player.name, 'idGame', gameId);

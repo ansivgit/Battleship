@@ -13,4 +13,7 @@ export const COMMAND_TYPES = {
   updateRoom: 'update_room',
   addToRoom: 'add_user_to_room',
   createGame: 'create_game',
+  addShips: 'add_ships',
+  startGame: 'start_game',
+  turn: 'turn',
 };
