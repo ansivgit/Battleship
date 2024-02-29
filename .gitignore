@@ -1,0 +1,10 @@
+# package directories
+node_modules
+dist
+
+# testing
+coverage
+
+#env
+.env
+.DS_Store
